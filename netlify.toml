@@ -1,18 +1,22 @@
 [build]
   command = "npm run build"
+  # Publish directory is handled automatically by @netlify/plugin-nextjs
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
+  # Enable Next.js standalone output for better performance
   NEXT_PRIVATE_STANDALONE = "true"
 
 # Enable build cache for faster rebuilds
 [build.processing]
   skip_processing = false
 
+# Netlify Next.js plugin - handles routing, ISR, and serverless functions automatically
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -20,10 +24,8 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
-# Redirect rules for client-side routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Next.js handles all routing automatically via the plugin
+# No manual redirects needed - the plugin handles client-side routing
 

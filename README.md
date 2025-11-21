@@ -53,8 +53,8 @@ cp config.example.ts config.ts
 ```typescript
 export const AUTH_TOKEN = 'your_webflow_api_token';
 export const COLLECTION_ID = 'your_events_collection_id';
-export const CATEGORY_COLLECTION_ID = 'your_category_collection_id';
-export const COMMUNITY_COLLECTION_ID = 'your_community_collection_id';
+export const LOCATION_COLLECTION_ID = 'your_location_collection_id';
+export const SITE_ID = 'your_webflow_site_id';
 ```
 
 ### Running Locally
@@ -87,10 +87,9 @@ git push origin main
    - Add the following variables:
      - **Webflow:**
        - `NEXT_PUBLIC_AUTH_TOKEN`: Your Webflow API token
-       - `NEXT_PUBLIC_COLLECTION_ID`: Your Events collection ID (686b88dfd246d066e6c034f8)
-       - `NEXT_PUBLIC_CATEGORY_COLLECTION_ID`: Your Category collection ID (686b89fba5b90558f5ce471f)
-       - `NEXT_PUBLIC_COMMUNITY_COLLECTION_ID`: Your Community collection ID (68e70edb8c0ca22e35eccd27)
-       - `NEXT_PUBLIC_LOCATION_COLLECTION_ID`: Your Location collection ID (686b87fd7142a7a251518c48)
+       - `NEXT_PUBLIC_COLLECTION_ID`: Your Events collection ID
+       - `NEXT_PUBLIC_LOCATION_COLLECTION_ID`: Your Location collection ID
+       - `NEXT_PUBLIC_SITE_ID`: Your Webflow site ID
      - **Image Hosting (Optional):**
        - `IMGBB_API_KEY`: Your ImgBB API key (see [IMGBB_SETUP.md](./IMGBB_SETUP.md))
    
@@ -115,9 +114,8 @@ npm run build
 ```
 ├── app/
 │   ├── api/                    # API routes
-│   │   ├── categories/         # Category collection API
 │   │   ├── collection/         # Main collection API
-│   │   ├── communities/        # Community collection API
+│   │   ├── locations/          # Location collection API
 │   │   └── collection/items/   # Item CRUD operations
 │   ├── components/             # React components
 │   │   ├── EditItemModal.tsx   # Edit event modal
