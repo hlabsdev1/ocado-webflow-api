@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
   # Publish directory is handled automatically by @netlify/plugin-nextjs
-  publish = ".next"
+  # No need to specify publish directory - plugin handles it
 
 [build.environment]
   NODE_VERSION = "20"
