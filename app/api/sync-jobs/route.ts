@@ -608,7 +608,7 @@ export async function POST(request: Request) {
     }
 
     // Fetch data from external API with retry logic
-    let externalResponse;
+    let externalResponse: Response | undefined;
     const maxRetries = 3;
     let lastError: any = null;
     
@@ -667,6 +667,18 @@ export async function POST(request: Request) {
           );
         }
       }
+    }
+
+    // Check if externalResponse is defined before accessing its properties
+    if (!externalResponse) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Failed to fetch from external API - no response received after multiple attempts',
+          details: 'The external API did not return a response. Please try again later.',
+        },
+        { status: 500 }
+      );
     }
 
     if (!externalResponse.ok) {
@@ -1757,7 +1769,7 @@ export async function GET() {
     }
 
     // Fetch data from external API with retry logic
-    let externalResponse;
+    let externalResponse: Response | undefined;
     const maxRetries = 3;
     let lastError: any = null;
     
@@ -1816,6 +1828,18 @@ export async function GET() {
           );
         }
       }
+    }
+
+    // Check if externalResponse is defined before accessing its properties
+    if (!externalResponse) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Failed to fetch from external API - no response received after multiple attempts',
+          details: 'The external API did not return a response. Please try again later.',
+        },
+        { status: 500 }
+      );
     }
 
     if (!externalResponse.ok) {
