@@ -1,0 +1,117 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(20, 18, 31, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.logoLink:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.1);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  color: #ffffff;
+  background: rgba(110, 86, 207);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  position: relative;
+  border: 1px solid rgba(110, 86, 207, 0.3);
+}
+
+.navLink:hover {
+  color: #ffffff;
+  background: rgba(110, 86, 207, 0.4);
+  transform: translateY(-2px);
+  border-color: rgba(110, 86, 207, 0.5);
+  box-shadow: 0 4px 12px rgba(110, 86, 207, 0.3);
+}
+
+/* Active link styles */
+.navLink[aria-current="page"] {
+  color: #ffffff;
+  background: #6E56CF;
+  font-weight: 700;
+  border-color: #6E56CF;
+  box-shadow: 0 4px 12px rgba(110, 86, 207, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
+
+  .logo {
+    height: 35px;
+  }
+
+  .navLinks {
+    gap: 0.25rem;
+  }
+
+  .navLink {
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navLinks {
+    display: none;
+  }
+
+  .navContainer {
+    justify-content: space-between;
+  }
+}
+
+/* Dark theme compatibility */
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: rgba(20, 18, 31, 0.98);
+  }
+}
+
