@@ -53,8 +53,8 @@ ehthumbs.db
 Desktop.ini
 
 # Project specific
-# config.ts contains actual credentials - only commit config.example.ts
-config.ts
+# config.ts is now safe to commit (uses env vars only)
+# config.example.ts is the template file
 
 # Netlify
 .netlify/
